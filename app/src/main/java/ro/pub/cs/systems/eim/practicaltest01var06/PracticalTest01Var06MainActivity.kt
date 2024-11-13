@@ -79,6 +79,7 @@ class PracticalTest01Var06MainActivity : AppCompatActivity() {
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
         score = savedInstanceState.getInt("scoreKey", 0)
         findViewById<TextView>(R.id.text1).text = savedInstanceState.getString("text1Key", "")
         findViewById<TextView>(R.id.text2).text = savedInstanceState.getString("text2Key", "")
@@ -86,6 +87,8 @@ class PracticalTest01Var06MainActivity : AppCompatActivity() {
         findViewById<CheckBox>(R.id.check1).isChecked = savedInstanceState.getBoolean("check1Key", false)
         findViewById<CheckBox>(R.id.check2).isChecked = savedInstanceState.getBoolean("check2Key", false)
         findViewById<CheckBox>(R.id.check3).isChecked = savedInstanceState.getBoolean("check3Key", false)
+
+        Toast.makeText(this, "Total score: $score", Toast.LENGTH_SHORT).show()
     }
 
     fun countCheckedCheckBoxes(checkBox1: CheckBox, checkBox2: CheckBox, checkBox3: CheckBox): Int {
